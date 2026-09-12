@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Life RPG - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            ⚔️ LIFE RPG
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <span id="navUsername">
+                Hero
+            </span>
+
+            <button
+                class="logout-btn"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ========================= -->
+    <!-- MAIN DASHBOARD -->
+    <!-- ========================= -->
+
+    <main class="dashboard">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <p class="small-text">
+                WELCOME BACK, HERO
+            </p>
+
+
+            <h1>
+
+                <span id="username">
+                    Hero
+                </span>
+
+                ⚔️
+
+            </h1>
+
+
+            <p>
+                Your real-life adventure continues!
+            </p>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- PLAYER STATS -->
+        <!-- ========================= -->
+
+        <section class="stats">
+
+
+            <!-- LEVEL -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Level
+                </h3>
+
+                <strong id="level">
+                    1
+                </strong>
+
+            </div>
+
+
+
+            <!-- XP -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    XP
+                </h3>
+
+                <strong id="xp">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <!-- COINS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🪙
+                </div>
+
+                <h3>
+                    Coins
+                </h3>
+
+                <strong id="coins">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <!-- STREAK -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔥
+                </div>
+
+                <h3>
+                    Streak
+                </h3>
+
+                <strong id="streak">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- LEVEL PROGRESS -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    ⚡ Level Progress
+                </h2>
+
+                <span id="xpText">
+                    0 / 100 XP
+                </span>
+
+            </div>
+
+
+            <div class="progress-container">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- ATTRIBUTES -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>
+                🧙 Character Attributes
+            </h2>
+
+
+            <div class="attributes">
+
+
+                <!-- STRENGTH -->
+
+                <div class="attribute">
+
+                    <span>
+                        💪 Strength
+                    </span>
+
+                    <div class="attribute-bar">
+
+                        <div
+                            class="attribute-fill"
+                            id="strengthBar"
+                            style="width:60%;">
+                        </div>
+
+                    </div>
+
+                    <strong id="strength">
+                        6
+                    </strong>
+
+                </div>
+
+
+
+                <!-- INTELLIGENCE -->
+
+                <div class="attribute">
+
+                    <span>
+                        🧠 Intelligence
+                    </span>
+
+                    <div class="attribute-bar">
+
+                        <div
+                            class="attribute-fill"
+                            id="intelligenceBar"
+                            style="width:80%;">
+                        </div>
+
+                    </div>
+
+                    <strong id="intelligence">
+                        8
+                    </strong>
+
+                </div>
+
+
+
+                <!-- HEALTH -->
+
+                <div class="attribute">
+
+                    <span>
+                        ❤️ Health
+                    </span>
+
+                    <div class="attribute-bar">
+
+                        <div
+                            class="attribute-fill"
+                            id="healthBar"
+                            style="width:70%;">
+                        </div>
+
+                    </div>
+
+                    <strong id="health">
+                        7
+                    </strong>
+
+                </div>
+
+
+
+                <!-- CREATIVITY -->
+
+                <div class="attribute">
+
+                    <span>
+                        🎨 Creativity
+                    </span>
+
+                    <div class="attribute-bar">
+
+                        <div
+                            class="attribute-fill"
+                            id="creativityBar"
+                            style="width:50%;">
+                        </div>
+
+                    </div>
+
+                    <strong id="creativity">
+                        5
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- QUESTS -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+
+            <div class="section-title">
+
+                <h2>
+                    📜 Today's Quests
+                </h2>
+
+
+                <button
+                    class="add-btn"
+                    onclick="showQuestMessage()">
+
+                    + Add Quest
+
+                </button>
+
+            </div>
+
+
+
+            <!-- QUEST 1 -->
+
+            <div class="quest">
+
+                <div class="quest-info">
+
+                    <h3>
+                        📚 Study Machine Learning
+                    </h3>
+
+                    <p>
+                        Study ML for 1 hour
+                    </p>
+
+                </div>
+
+
+                <div class="quest-action">
+
+                    <span class="xp-reward">
+                        +50 XP
+                    </span>
+
+
+                    <button
+                        class="complete-btn"
+                        onclick="completeQuest(this, 50)">
+
+                        Complete
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUEST 2 -->
+
+            <div class="quest">
+
+                <div class="quest-info">
+
+                    <h3>
+                        💻 Practice Coding
+                    </h3>
+
+                    <p>
+                        Solve 2 programming problems
+                    </p>
+
+                </div>
+
+
+                <div class="quest-action">
+
+                    <span class="xp-reward">
+                        +40 XP
+                    </span>
+
+
+                    <button
+                        class="complete-btn"
+                        onclick="completeQuest(this, 40)">
+
+                        Complete
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUEST 3 -->
+
+            <div class="quest">
+
+                <div class="quest-info">
+
+                    <h3>
+                        🏃 Exercise
+                    </h3>
+
+                    <p>
+                        Exercise for 30 minutes
+                    </p>
+
+                </div>
+
+
+                <div class="quest-action">
+
+                    <span class="xp-reward">
+                        +30 XP
+                    </span>
+
+
+                    <button
+                        class="complete-btn"
+                        onclick="completeQuest(this, 30)">
+
+                        Complete
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- REWARDS -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>
+                🏆 Rewards Shop
+            </h2>
+
+
+            <div class="rewards">
+
+
+                <!-- REWARD 1 -->
+
+                <div class="reward">
+
+                    <div class="reward-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        Purple Theme
+                    </h3>
+
+                    <p>
+                        100 Coins
+                    </p>
+
+                    <button
+                        onclick="buyReward(100)">
+
+                        Buy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- REWARD 2 -->
+
+                <div class="reward">
+
+                    <div class="reward-icon">
+                        🏅
+                    </div>
+
+                    <h3>
+                        Hero Badge
+                    </h3>
+
+                    <p>
+                        200 Coins
+                    </p>
+
+                    <button
+                        onclick="buyReward(200)">
+
+                        Buy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- REWARD 3 -->
+
+                <div class="reward">
+
+                    <div class="reward-icon">
+                        👑
+                    </div>
+
+                    <h3>
+                        Royal Badge
+                    </h3>
+
+                    <p>
+                        500 Coins
+                    </p>
+
+                    <button
+                        onclick="buyReward(500)">
+
+                        Buy
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            ⚔️ LIFE RPG — Turn Your Real Life Into An Adventure
+
+        </footer>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
