@@ -179,8 +179,7 @@ async function login() {
 
             setTimeout(() => {
 
-                window.location.href =
-                    "dashboard.html";
+                window.location.href = "character.html";
 
             }, 800);
 
@@ -551,3 +550,130 @@ document.addEventListener(
 
     }
 );
+async function chooseCharacter(characterType) {
+
+    const userId = localStorage.getItem("userId");
+
+    const message =
+        document.getElementById("characterMessage");
+
+    if (!userId) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `${API_URL}/character`,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    userId: userId,
+                    characterType: characterType
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        message.textContent = data.message;
+
+        if (response.ok) {
+
+            localStorage.setItem(
+                "characterType",
+                characterType
+            );
+
+            setTimeout(() => {
+                window.location.href = "dashboard.html";
+            }, 700);
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        message.textContent =
+            "Cannot connect to backend.";
+
+    }
+}
+async function loadPlayerData() {
+
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `${API_URL}/player/${userId}`
+        );
+
+        const player = await response.json();
+
+        if (!response.ok) {
+            alert(player.message);
+            return;
+        }
+
+        document.getElementById("username").textContent =
+            player.username;
+
+        document.getElementById("navUsername").textContent =
+            player.username;
+
+        document.getElementById("level").textContent =
+            player.level || 1;
+
+        document.getElementById("xp").textContent =
+            player.xp || 0;
+
+        document.getElementById("coins").textContent =
+            player.coins || 0;
+
+        document.getElementById("streak").textContent =
+            player.streak || 0;
+
+        document.getElementById("strength").textContent =
+            player.strength || 1;
+
+        document.getElementById("intelligence").textContent =
+            player.intelligence || 1;
+
+        document.getElementById("health").textContent =
+            player.health || 1;
+
+        document.getElementById("creativity").textContent =
+            player.creativity || 1;
+
+        document.getElementById("strengthBar").style.width =
+            `${Math.min((player.strength || 1) * 10, 100)}%`;
+
+        document.getElementById("intelligenceBar").style.width =
+            `${Math.min((player.intelligence || 1) * 10, 100)}%`;
+
+        document.getElementById("healthBar").style.width =
+            `${Math.min((player.health || 1) * 10, 100)}%`;
+
+        document.getElementById("creativityBar").style.width =
+            `${Math.min((player.creativity || 1) * 10, 100)}%`;
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Could not load player data.");
+
+    }
+}
