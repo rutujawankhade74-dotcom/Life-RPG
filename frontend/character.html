@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Character - Life RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="character-container">
+        <h1>Choose Your Hero</h1>
+        <p>Select your RPG character.</p>
+
+        <div class="character-grid">
+
+            <div class="character-card">
+                <div class="character-icon">⚔️</div>
+                <h2>Warrior</h2>
+                <p>Strong and powerful.</p>
+                <button onclick="chooseCharacter('Warrior')">
+                    Choose Warrior
+                </button>
+            </div>
+
+            <div class="character-card">
+                <div class="character-icon">🔮</div>
+                <h2>Mage</h2>
+                <p>Intelligent and magical.</p>
+                <button onclick="chooseCharacter('Mage')">
+                    Choose Mage
+                </button>
+            </div>
+
+            <div class="character-card">
+                <div class="character-icon">🏹</div>
+                <h2>Ranger</h2>
+                <p>Fast and agile.</p>
+                <button onclick="chooseCharacter('Ranger')">
+                    Choose Ranger
+                </button>
+            </div>
+
+        </div>
+
+        <p id="characterMessage" class="message"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

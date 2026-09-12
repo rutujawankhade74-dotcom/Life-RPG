@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life RPG - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>⚔️ LIFE RPG</h2>
+
+        <div>
+            <span id="navUsername">Player</span>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <section class="welcome-section">
+            <h1>Welcome, <span id="username">Player</span> 👋</h1>
+            <p>Complete quests and earn rewards.</p>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Level</h3>
+                <p id="level">1</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>XP</h3>
+                <p id="xp">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Coins</h3>
+                <p id="coins">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Streak</h3>
+                <p id="streak">0</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Character Attributes</h2>
+            <p>Class: <span id="characterClass">Not selected</span></p>
+            <p>Strength: <span id="strength">0</span></p>
+            <p>Intelligence: <span id="intelligence">0</span></p>
+            <p>Agility: <span id="agility">0</span></p>
+        </section>
+
+        <section class="card">
+            <h2>XP Progress</h2>
+            <p id="xpText">0 / 100 XP</p>
+
+            <div class="progress-background">
+                <div id="progressBar" class="progress-fill"></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Create Daily Quest</h2>
+
+            <input id="newQuestTitle" type="text" placeholder="Example: Study JavaScript">
+
+            <select id="newQuestCategory">
+                <option value="General">General</option>
+                <option value="Study">Study</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Health">Health</option>
+                <option value="Creativity">Creativity</option>
+            </select>
+
+            <input id="newQuestXP" type="number" value="20" min="1">
+            <input id="newQuestCoins" type="number" value="10" min="1">
+
+            <button class="main-button" onclick="addQuest()">
+                Add Quest
+            </button>
+
+            <p id="questMessage" class="message"></p>
+        </section>
+
+        <section class="card">
+            <h2>Daily Quests</h2>
+            <div id="questList">Loading quests...</div>
+        </section>
+
+        <section class="card">
+            <h2>Rewards Shop</h2>
+            <div id="rewardsList">Loading rewards...</div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

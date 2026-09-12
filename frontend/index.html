@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life RPG - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <h1>⚔️ LIFE RPG</h1>
+        <p>Turn your real life into an adventure.</p>
+
+        <div id="loginBox">
+            <h2>Login</h2>
+
+            <input id="loginUsername" type="text" placeholder="Username">
+            <input id="loginPassword" type="password" placeholder="Password">
+
+            <button class="main-button" onclick="login()">Login</button>
+
+            <p id="loginMessage" class="message"></p>
+
+            <p>
+                New player?
+                <button class="link-button" onclick="showSignup()">
+                    Create account
+                </button>
+            </p>
+        </div>
+
+        <div id="signupBox" class="hidden">
+            <h2>Create Account</h2>
+
+            <input id="signupUsername" type="text" placeholder="Username">
+            <input id="signupPassword" type="password" placeholder="Password">
+
+            <button class="main-button" onclick="signup()">Signup</button>
+
+            <p id="signupMessage" class="message"></p>
+
+            <button class="link-button" onclick="showLogin()">
+                Back to login
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
